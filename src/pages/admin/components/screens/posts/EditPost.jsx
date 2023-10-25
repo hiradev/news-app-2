@@ -1,18 +1,17 @@
-
 import ArticleDetailSkeleton from "@/pages/articleDetail/components/ArticleDetailSkeleton";
 import ErrorMessage from "@/components/ErrorMessage";
 import { HiOutlineCamera } from "react-icons/hi";
 import Editor from "@/components/editor/Editor";
 import Image from "next/image";
 import Link from "next/link";
-
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom/dist";
+import { useRouter } from "next/router";
 
 const EditPost = () => {
-  const { slug } = useParams ();
+  const router = useRouter();
+  const { slug } = router.query;
   const queryClient = useQueryClient();
   const userState = useSelector((state) => state.user);
   const [initialPhoto, setInitialPhoto] = useState(null);

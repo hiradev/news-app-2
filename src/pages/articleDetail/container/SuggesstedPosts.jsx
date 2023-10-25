@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const SuggesstedPosts = ({ className, header, posts = [], tags }) => {
+const SuggesstedPosts = ({ className, header, posts = [], tags = [] }) => {
   return (
     <div
       className={`w-full shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px] rounded-lg p-4 ${className}`}
@@ -24,9 +24,9 @@ const SuggesstedPosts = ({ className, header, posts = [], tags }) => {
               </h3>
               <span className="text-xs opacity-60">
                 {new Date(item.createdAt).toLocaleDateString("en-US", {
-                    day: 'numeric',
-                    month: 'short',
-                    year: 'numeric'
+                  day: 'numeric',
+                  month: 'short',
+                  year: 'numeric'
                 })}
               </span>
             </div>
@@ -35,10 +35,10 @@ const SuggesstedPosts = ({ className, header, posts = [], tags }) => {
       </div>
       <h2 className="font-medium text-black mt-8 dark:invert">Tags</h2>
       <div className="flex flex-wrap gap-x-2 gap-y-2 mt-4">
-        {tags.map((item, index) => (
-            <Link href='/' key={index} className="inline-block rounded-md px-3 py-1.5 bg-green-900 text-xs text-white md:text-sm">
-                {item}
-            </Link>
+        {tags && tags.map((item, index) => (
+          <Link href='/' key={index} className="inline-block rounded-md px-3 py-1.5 bg-green-900 text-xs text-white md:text-sm">
+            {item}
+          </Link>
         ))}
       </div>
     </div>

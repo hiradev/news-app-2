@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { FiSearch } from "react-icons/fi";
 import Image from 'next/image';
 import { images } from '@/constants';
