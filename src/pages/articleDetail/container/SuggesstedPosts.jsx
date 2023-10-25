@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 
 const SuggesstedPosts = ({ className, header, posts = [], tags }) => {
   return (
@@ -9,7 +8,7 @@ const SuggesstedPosts = ({ className, header, posts = [], tags }) => {
     >
       <h2 className="font-medium text-black dark:invert md:text-xl">{header}</h2>
       <div className="grid gap-y-5 mt-5 md:grid-cols-2 md:gap-x-5 lg:grid-cols-1">
-        {posts.map((item) => (
+        {posts && posts.map((item) => (
           <div
             className="flex space-x-3 flex-nowrap items-center"
             key={item._id}

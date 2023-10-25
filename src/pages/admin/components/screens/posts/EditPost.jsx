@@ -5,10 +5,11 @@ import { HiOutlineCamera } from "react-icons/hi";
 import Editor from "@/components/editor/Editor";
 import Image from "next/image";
 import Link from "next/link";
-import { useParams } from "next/navigation";
+
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom/dist";
 
 const EditPost = () => {
   const { slug } = useParams ();
