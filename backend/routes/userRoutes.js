@@ -1,4 +1,5 @@
 import express from 'express';
+
 const router = express.Router();
 import { registerUser, loginUser, userProfile, updateProfile, updateProfilePicture } from '../controllers/userControllers';
 import { authGuard } from '../middlewares/authMiddleware';

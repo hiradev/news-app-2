@@ -32,7 +32,7 @@ const Header = () => {
       onSuccess: (data) => {
         queryClient.invalidateQueries(["posts"]);
         toast.success("Post is created, edit that now!");
-        router(`/admin/posts/manage/edit/${data.slug}`)
+        router.push(`/admin/posts/manage/edit/${data.slug}`)
       },
       onError: (error) => {
         toast.error(error.message);
@@ -60,7 +60,7 @@ const Header = () => {
     <header className="flex h-fit w-full items-center justify-between p-4 lg:h-full lg:max-w-[300px] lg:flex-col lg:items-start lg:justify-start lg:p-0">
       {/* logo */}
       <Link href="/">
-        <Image src={images.Logo} alt="logo" className="w-16 lg:hidden" />
+        <Image src="/vercel.svg" alt="logo" className="w-16 lg:hidden" width={100} height={24}/>
       </Link>
       {/* menu burger icon */}
       <div className="cursor-pointer lg:hidden">
@@ -79,18 +79,18 @@ const Header = () => {
             onClick={toggleMenuHandler}
           />
           {/* sidebar */}
-          <div className="fixed top-0 bottom-0 left-0 z-50 w-3/4 overflow-y-auto bg-white p-4 lg:static lg:h-full lg:w-full lg:p-6">
-            <Link to="/">
-              <Image src={images.Logo} alt="logo" className="w-16" />
+          <div className="fixed top-0 text-black bottom-0 left-0 z-50 w-3/4 overflow-y-auto bg-white p-4 lg:static lg:h-full lg:w-full lg:p-6">
+            <Link href="/">
+              <Image src="/vercel.svg" alt="logo" className="w-16" width={100} height={24} />
             </Link>
-            <h4 className="mt-10 font-bold text-[#C7C7C7]">MAIN MENU</h4>
+            <h4 className="mt-10 font-bold text-black">MAIN MENU</h4>
             {/* menu items */}
             <div className="mt-6 flex flex-col gap-y-[0.563rem]">
 
               <NavItem
                 title="Dashboard"
                 link="/admin"
-                icon={<AiFillDashboard className="text-xl" />}
+                icon={<AiFillDashboard className="text-xl text-black" />}
                 name="dashboard"
                 activeNavName={activeNavName}
                 setActiveNavName={setActiveNavName}
@@ -98,7 +98,7 @@ const Header = () => {
               <NavItem
                 title="Comments"
                 link="/admin/comments"
-                icon={<FaComments className="text-xl" />}
+                icon={<FaComments className="text-xl text-black" />}
                 name="comments"
                 activeNavName={activeNavName}
                 setActiveNavName={setActiveNavName}
@@ -106,13 +106,13 @@ const Header = () => {
 
               <NavItemCollapse
                 title="Posts"
-                icon={<MdDashboard className="text-xl" />}
+                icon={<MdDashboard className="text-xl text-black" />}
                 name="posts"
                 activeNavName={activeNavName}
                 setActiveNavName={setActiveNavName}
               >
                 <Link href="/admin/posts/manage">Manage all posts</Link>
-                <button disabled={isLoadingCreatePost} className="text-start disabled:opacity-60 disabled:cursor-not-allowed" onClick={() => handleCreateNewPost({ token: userState.userInfo.token })}>Add New Post</button>
+                <button disabled={isLoadingCreatePost} className="text-start text-black disabled:opacity-60 disabled:cursor-not-allowed" onClick={() => handleCreateNewPost({ token: userState.userInfo.token })}>Add New Post</button>
               </NavItemCollapse>
 
             </div>

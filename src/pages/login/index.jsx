@@ -29,10 +29,10 @@ const LoginPage = () => {
       });
 
       useEffect(() => {
-        if (userState?.userInfo) {
-          router("/");
+        if (userState.userInfo) {
+          router.push("/");
         }
-      }, [router,userState?.userInfo]);
+      }, [router,userState.userInfo]);
 
   const { register, handleSubmit, formState: { errors, isValid }, } = useForm({
     defaultValues: {

@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const signup = async ({ name, email, password }) => {
   try {
-    const { data } = await axios.post("/api/users/register", {
+    const { data } = await axios.post("http://localhost:5000/api/users/register", {
       name,
       email,
       password,
@@ -17,7 +17,7 @@ export const signup = async ({ name, email, password }) => {
 
 export const login = async ({ email, password }) => {
   try {
-    const { data } = await axios.post("/api/users/login", {
+    const { data } = await axios.post("http://localhost:5000/api/users/login", {
       email,
       password,
     });
@@ -37,7 +37,7 @@ export const getUserProfile = async ({ token }) => {
       },
     };
 
-    const { data } = await axios.get("/api/users/profile", config);
+    const { data } = await axios.get("http://localhost:5000/api/users/profile", config);
     return data;
   } catch (error) {
     if (error.response && error.response.data.message)
@@ -55,7 +55,7 @@ export const updateProfile = async ({ token, userData }) => {
     };
 
     const { data } = await axios.put(
-      "/api/users/updateProfile",
+      "http://localhost:5000/api/users/updateProfile",
       userData,
       config
     );
@@ -77,7 +77,7 @@ export const updateProfilePicture = async ({ token, formData }) => {
     };
 
     const { data } = await axios.put(
-      "/api/users/updateProfilePicture",
+      "http://localhost:5000/api/users/updateProfilePicture",
       formData,
       config
     );

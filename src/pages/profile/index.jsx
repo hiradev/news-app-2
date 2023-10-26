@@ -43,8 +43,8 @@ const ProfilePage = () => {
   });
 
   useEffect(() => {
-    if (!userState?.userInfo) {
-      router("/");
+    if (!userState.userInfo) {
+      router.push("/");
     }
   }, [router,userState?.userInfo]);
 

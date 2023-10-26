@@ -38,9 +38,17 @@ const ProfilePicture = ({ avatar }) => {
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
-    setPhoto({ url: URL.createObjectURL(file), file });
-    setOpenCrop(true);
+    console.log("Selected file:", file);
+  
+    if (file instanceof File) {
+      setPhoto({ url: URL.createObjectURL(file), file });
+      setOpenCrop(true);
+    } else {
+      console.error("Invalid file selected.");
+      // Handle the error or provide feedback to the user.
+    }
   };
+  
 
   const handleDeleteImage = () => {
     if (window.confirm("Do you want to delete your profile picture")) {
